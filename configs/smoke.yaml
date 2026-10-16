@@ -1,0 +1,6 @@
+extends: base.yaml
+name: smoke_dynamic
+simulation: {duration: 30, warmup: 3}
+workload: {devices: 30}
+optimization: {dynamic_budget: 50}
+experiment: {seeds: [0, 1, 2], bootstrap_samples: 2000}

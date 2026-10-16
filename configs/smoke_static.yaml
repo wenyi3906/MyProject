@@ -1,0 +1,6 @@
+extends: static.yaml
+name: smoke_static
+simulation: {duration: 3}
+workload: {task_count: 20, release_window: 3}
+optimization: {static_budget: 50}
+experiment: {seeds: [0, 1, 2], bootstrap_samples: 2000}

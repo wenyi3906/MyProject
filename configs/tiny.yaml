@@ -1,0 +1,12 @@
+extends: static.yaml
+name: tiny
+simulation: {duration: 1, sample_interval: 0.1}
+topology: {aps: 1, edge_hosts: 1, vms_per_edge: 1, edge_mips: 10, cloud_vms: 1, cloud_mips: 20}
+network: {wlan_propagation: 0, wan_propagation: 0}
+workload:
+  devices: 1
+  task_count: 6
+  release_window: 0.2
+  apps: [{name: test, share: 1, interval: 1, max_delay: 0.3, input_kb: 0, output_kb: 0, mi: 1}]
+optimization: {static_budget: 100}
+experiment: {seeds: [0], bootstrap_samples: 100}

@@ -1,0 +1,9 @@
+scenarios:
+  - config: static.yaml
+    scan: {parameter: workload.task_count, values: [100, 500, 1000]}
+  - config: base.yaml
+    scan: {parameter: workload.devices, values: [100, 500, 1000, 1500, 2000]}
+  - {config: burst.yaml}
+  - {config: compute_bottleneck.yaml}
+  - {config: network_bottleneck.yaml}
+  - {config: heterogeneous.yaml}

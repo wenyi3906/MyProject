@@ -1,0 +1,4 @@
+extends: base.yaml
+name: compute_bottleneck
+topology: {edge_mips: 2500, cloud_mips: 25000}
+network: {wlan_mbps: 1000, wan_mbps: 10000}

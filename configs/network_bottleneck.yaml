@@ -1,0 +1,3 @@
+extends: base.yaml
+name: network_bottleneck
+network: {wlan_mbps: 50, wan_mbps: 100}

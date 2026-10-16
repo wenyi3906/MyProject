@@ -1,0 +1,4 @@
+extends: base.yaml
+name: dynamic_burst
+workload:
+  bursts: [{start: 120, end: 150, multiplier: 3}]

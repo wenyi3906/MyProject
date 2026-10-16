@@ -1,0 +1,43 @@
+name: dynamic_base
+mode: dynamic
+simulation:
+  duration: 300
+  warmup: 30
+  window: 0.1
+  max_batch: 128
+  sample_interval: 1
+topology:
+  aps: 8
+  edge_hosts: 8
+  vms_per_edge: 4
+  edge_mips: 10000
+  cloud_vms: 4
+  cloud_mips: 100000
+  slots_per_vm: 1
+network:
+  wlan_mbps: 200
+  wan_mbps: 1000
+  wlan_propagation: 0.005
+  wan_propagation: 0.05
+workload:
+  devices: 1000
+  task_count: 500
+  release_window: 30
+  apps:
+    - {name: ar, share: 0.3, interval: 5, max_delay: 0.5, input_kb: 1500, output_kb: 25, mi: 2000}
+    - {name: health, share: 0.2, interval: 20, max_delay: 5, input_kb: 5000, output_kb: 20, mi: 800}
+    - {name: heavy, share: 0.2, interval: 60, max_delay: 10, input_kb: 12500, output_kb: 250, mi: 15000}
+    - {name: info, share: 0.3, interval: 20, max_delay: 2, input_kb: 25, output_kb: 2000, mi: 50}
+  bursts: []
+optimization:
+  weights: [0.5, 0.3, 0.2]
+  static_budget: 2000
+  dynamic_budget: 200
+  ga: {population: 30, tournament: 3, crossover: 0.8, elites: 2}
+  aco: {ants: 20, alpha: 1, beta: 2, rho: 0.2}
+  sa: {temperature: 0.1, cooling: 0.95, epoch: 20}
+experiment:
+  algorithms: [random, round_robin, greedy, ga, aco, sa]
+  seeds: [100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114,
+          115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129]
+  bootstrap_samples: 10000

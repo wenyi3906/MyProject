@@ -1,0 +1,2 @@
+[console_scripts]
+cloudedge = cloudedge.cli:main

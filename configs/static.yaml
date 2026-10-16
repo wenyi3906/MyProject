@@ -1,0 +1,4 @@
+extends: base.yaml
+name: static_base
+mode: static
+simulation: {duration: 30, warmup: 0}

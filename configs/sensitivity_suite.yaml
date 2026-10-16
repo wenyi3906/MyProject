@@ -1,0 +1,10 @@
+scenarios:
+  - config: base.yaml
+    scan: {parameter: simulation.window, values: [0.02, 0.1, 0.2]}
+  - config: base.yaml
+    scan: {parameter: optimization.dynamic_budget, values: [50, 200, 1000]}
+  - config: base.yaml
+    scan:
+      parameter: optimization.weights
+      values: [[0.5, 0.3, 0.2], [0.8, 0.1, 0.1], [0.2, 0.4, 0.4]]
+      names: [weights_balanced, weights_failure, weights_delay_balance]

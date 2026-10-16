@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloudedge-sim"
+version = "0.1.0"
+description = "Reproducible cloud-edge scheduling experiments"
+requires-python = ">=3.12"
+dependencies = ["simpy>=4.1,<5", "numpy>=2", "pandas>=2", "matplotlib>=3.8", "PyYAML>=6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+cloudedge = "cloudedge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "--basetemp=.cache/pytest"
+
